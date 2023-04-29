@@ -9,6 +9,12 @@ app = Flask(__name__)
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
+@app.route('/player/verify')
+def verify_player():
+    """Show site on which an player can verify the profile"""
+    return render_template("verify_player.html")
+
+
 @app.route('/player/create')
 def create_player():
     """Show site on which an admin can create a new player"""
