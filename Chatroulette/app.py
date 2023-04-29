@@ -9,11 +9,16 @@ app = Flask(__name__)
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
-
-@app.route('/create/player')
-def new_player_guide():
-    """Show site on which user can be created"""
+@app.route('/player/create')
+def create_player():
+    """Show site on which an admin can create a new player"""
     return render_template("create_player.html")
+
+
+@app.route('/player/edit')
+def edit_player_profile():
+    """Show site on which user can edit preferences"""
+    return render_template("edit_player.html")
 
 
 if __name__ == '__main__':
@@ -23,4 +28,4 @@ if __name__ == '__main__':
         PORT = int(os.environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 5555
-    app.run(HOST, PORT)
+    app.run(HOST, PORT, debug=True)
