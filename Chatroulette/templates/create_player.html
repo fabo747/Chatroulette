@@ -4,4 +4,13 @@
 	<h1>Create new Player</h1>
 </header>
 <body>
+	<form method="post">
+		<label for="player_age">Wann wurde der Spieler Geboren?</label>
+		<input type="date" id="birthdate" name="player_birthdate">
+	</form>
+
+	<br><br>
+	<form method="post" action="/player/id-qr-code">
+		<input type="submit" value="QR-Code Generieren">
+	</form>
 </body>
